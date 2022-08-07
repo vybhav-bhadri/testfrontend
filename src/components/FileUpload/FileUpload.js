@@ -15,11 +15,19 @@ export default class FilesUploadComponent extends Component {
         e.preventDefault()
         const formData = new FormData()
         formData.append("file", this.state.file);
-        console.log(Object.fromEntries(formData.entries()))
+        // console.log(Object.fromEntries(formData.entries())) file info
         axios.post("http://localhost:4000/folder/uploadFile", formData, {
-        }).then(res => {
-            console.log(res)
-        })
+        }).then(response => {
+            console.log("res",response.data)
+         })
+         .then(data => {
+            console.log(data)
+         })
+         .catch(error => {
+            console.log(error.response.data?.message)
+            alert(error.response.data?.message)
+            // throw new Error(error.response.data?.message)
+         })
 
         e.target.reset()
     }

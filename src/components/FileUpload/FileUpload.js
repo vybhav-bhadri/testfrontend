@@ -20,6 +20,8 @@ export default class FilesUploadComponent extends Component {
         }).then(res => {
             console.log(res)
         })
+
+        e.target.reset()
     }
 
     render() {

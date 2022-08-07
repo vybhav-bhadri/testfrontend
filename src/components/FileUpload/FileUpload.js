@@ -22,6 +22,7 @@ export default class FilesUploadComponent extends Component {
          })
          .then(data => {
             console.log(data)
+            alert("Pdf file uploaded")
          })
          .catch(error => {
             console.log(error.response.data?.message)
